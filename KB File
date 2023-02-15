@@ -1,0 +1,10 @@
+import facebook
+
+# Set up the Graph API connection
+graph = facebook.GraphAPI(access_token='your_access_token', version='3.0')
+
+# Retrieve the page ID
+page_id = graph.get_object('/me')['id']
+
+# Post a message to the page's timeline
+graph.put_object(parent_object=page_id, connection_name='feed', message='Hello, Facebook!')
